@@ -16,9 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from core.views import home, about
+from core.views import home, about, product, user
 
 urlpatterns = [
     path('', home),
-    path('about', about)
+    path('about', about),
+    path('proizvod/<str:name>', product),
+    # dinamicki parametri - bilo koja putanja sa proizvod/nesto radi
+    path('user/<int:userId>', user)
 ]
