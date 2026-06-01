@@ -5,6 +5,12 @@
     <title>Title</title>
 </head>
 <body>
-<h1>Home page</h1>
+<h1>Home Page</h1>
+{% for name, product in products.items %}
+<h3>{{ name }}</h3>
+    <p>{{ product.description }}</p>
+    <p>{{ product.price }}$</p>
+    <hr/>
+{% endfor %}
 </body>
 </html>

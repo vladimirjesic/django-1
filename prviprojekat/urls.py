@@ -21,7 +21,7 @@ from core.views import home, about, product, user
 urlpatterns = [
     path('', home),
     path('about', about),
-    path('proizvod/<str:name>', product),
+    path('product/<str:name>', product),
     # dinamicki parametri - bilo koja putanja sa proizvod/nesto radi
     path('user/<int:userId>', user)
 ]
