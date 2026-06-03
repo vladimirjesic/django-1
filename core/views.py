@@ -58,5 +58,10 @@ def createProduct(request):
 def saveProduct(request):
     if request.method != "POST":
         return HttpResponseNotAllowed("You can't acces this page!")
-    else:
-        return HttpResponse(f"This is {request.method}")
+    title = request.POST.get("title")
+    price = request.POST.get("price")
+    description = request.POST.get("description")
+
+    if not title or not price or not description:
+        return HttpResponse("All fields are required!", status=400)
+    return HttpResponse(f"This is {title}, {price}, {description}", status=201)
