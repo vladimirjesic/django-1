@@ -1,4 +1,4 @@
-from django.http import HttpResponse, HttpResponseNotFound
+from django.http import HttpResponse, HttpResponseNotFound, HttpResponseNotAllowed
 from django.shortcuts import render
 
 products = {
@@ -51,3 +51,12 @@ def product(request, name):
 
 def user(request, userId):
     return HttpResponse(f"This is a user with ID {userId}")
+
+def createProduct(request):
+    return render(request, "createProduct.html")
+
+def saveProduct(request):
+    if request.method != "POST":
+        return HttpResponseNotAllowed("You can't acces this page!")
+    else:
+        return HttpResponse(f"This is {request.method}")

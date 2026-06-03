@@ -16,12 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from core.views import home, about, product, user
+from core.views import home, about, product, user, createProduct, saveProduct
 
 urlpatterns = [
     path('', home),
     path('about', about),
     path('product/<str:name>', product),
     # dinamicki parametri - bilo koja putanja sa proizvod/nesto radi
-    path('user/<int:userId>', user)
+    path('user/<int:userId>', user),
+    path('admin/product/create', createProduct),
+    path('admin/product/save', saveProduct)
 ]
